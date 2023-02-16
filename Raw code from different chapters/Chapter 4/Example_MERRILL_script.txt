@@ -1,0 +1,100 @@
+! Adapted from MERRILL paper
+! Geochemistry, Geophysics, Geosystems, 19, 1080–1106, 2018
+
+set MaxEnergyEvaluations 10000
+
+ConjugateGradient
+
+Magnetite 20 C
+
+External Field Direction 8.2373409E-01   5.6108752E-01  -8.1504291E-02
+
+External Field Strength 0 mT
+
+ReadMesh 1 ring1_tet.neu
+define refsize 2800
+LoadMesh 1
+SystemCommand mkdir size_hyst_ring1
+
+Loop meshsize 10 300 10
+
+	Resize #refsize #meshsize
+	Uniform magnetization 8.2373409E-01,   5.6108752E-01,  -8.1504291E-02
+	Minimize
+
+	WriteMagnetization size_hyst_ring1/ring1_up.$meshsize$nm
+	WriteHyst size_hyst_ring1/ring1_up
+
+	Resize #meshsize #refsize
+EndLoop
+
+Loop meshsize 300 10 -10
+	Resize #refsize #meshsize
+	Uniform magnetization 8.2373409E-01,   5.6108752E-01,  -8.1504291E-02
+	Minimize
+
+	WriteMagnetization size_hyst_ring1/ring1_down.$meshsize$nm
+	WriteHyst size_hyst_ring1/ring1_down
+
+	Resize #meshsize #refsize
+EndLoop
+
+ReadMesh 1 ring2_tet.neu
+define refsize 2000
+LoadMesh 1
+SystemCommand mkdir size_hyst_ring2
+External Field Direction 8.0977679E-01   5.8673789E-01  -4.3450092E-04
+
+Loop meshsize 10 300 10
+
+	Resize #refsize #meshsize
+	Uniform magnetization 8.0977679E-01,   5.8673789E-01,  -4.3450092E-04
+	Minimize
+
+	WriteMagnetization size_hyst_ring2/ring2_up.$meshsize$nm
+	WriteHyst size_hyst_ring2/ring2_up
+
+	Resize #meshsize #refsize
+EndLoop
+
+Loop meshsize 300 10 -10
+	Resize #refsize #meshsize
+	Uniform magnetization 8.0977679E-01,   5.8673789E-01,  -4.3450092E-04
+	Minimize
+
+	WriteMagnetization size_hyst_ring2/ring2_down.$meshsize$nm
+	WriteHyst size_hyst_ring2/ring2_down
+
+	Resize #meshsize #refsize
+EndLoop
+
+ReadMesh 1 ring3_tet.neu
+define refsize 2500
+LoadMesh 1
+SystemCommand mkdir size_hyst_ring3
+External Field Direction 5.2256025E-01   5.0684052E-01  -6.8559716E-01
+
+Loop meshsize 10 300 10
+
+	Resize #refsize #meshsize
+	Uniform magnetization 5.2256025E-01,   5.0684052E-01,  -6.8559716E-01
+	Minimize
+
+	WriteMagnetization size_hyst_ring3/ring3_up.$meshsize$nm
+	WriteHyst size_hyst_ring3/ring3_up
+
+	Resize #meshsize #refsize
+EndLoop
+
+Loop meshsize 300 10 -10
+	Resize #refsize #meshsize
+	Uniform magnetization 5.2256025E-01,   5.0684052E-01,  -6.8559716E-01
+	Minimize
+
+	WriteMagnetization size_hyst_ring3/ring3_down.$meshsize$nm
+	WriteHyst size_hyst_ring3/ring3_down
+
+	Resize #meshsize #refsize
+EndLoop
+
+CloseLogfile
