@@ -1,3 +1,5 @@
+<a href="https://scholar.google.com/citations?user=081Rl7kAAAAJ&hl=en" alt="Publications">
+        <img src="https://img.shields.io/github/contributors/badges/shields](https://img.shields.io/badge/Google%20Scholar-Publications-blue" /></a>
 # PhD-Public
 This repository contains a collation of code written during my PhD. It is still under development as I aim to clean up code from the 'Raw code' folder which contains as-written code pertaining to each chapter of my thesis.
 
