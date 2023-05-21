@@ -4,7 +4,10 @@
 # PhD-Public
 This repository contains a collation of code written during my PhD. It is still under development as I aim to clean up code from the 'Raw code' folder which contains as-written code pertaining to each chapter of my thesis.
 
-## Overview
+## Pictorial Overview
+<img src="https://github.com/grlewis333/PhD-Public/blob/main/The%20Shape%20of%20a%20PhD/timeline.png?raw=true"/>
+
+## Detailed overview
 - Code with dedicated repositories:
   - [WRAP](https://github.com/grlewis333/WRAP) is a compressed-sensing algorithm developed for magnetic vector electron tomography
   - [SEM Image Analysis GUI](https://github.com/grlewis333/sem-np-counter) is a user-friendly interface for semi-automated NP counting
